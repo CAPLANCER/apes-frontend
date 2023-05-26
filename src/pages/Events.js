@@ -84,7 +84,7 @@ export default function Events({ isAgenda = false }) {
       
       <Flex justify="left" mb={3}>
         <chakra.h3 fontSize="2xl" fontWeight="bold" textAlign="center">
-          {!isAgenda ? ( <> <p className="title">Events</p> </>) : "Agendas"}
+          {!isAgenda ? ( <> <p className="title">Events</p> </>) : <> <p className="title">Agendas</p> </>}
         </chakra.h3>
       </Flex>
       <div>
@@ -97,7 +97,9 @@ export default function Events({ isAgenda = false }) {
           <p className="eventdis">Participating in these extraordinary events is easier than ever! Simply dive into our captivating event listings, each brimming with thrilling details that will make your heart race. Choose the event that resonates with your passions and aspirations, and with a simple click, you'll unlock a world of adventure.</p>
           <p className="eventdis">So, are you ready to step into the spotlight, fuel your passions, and embrace a world of thrilling events? Gear up, buckle in, and prepare to make every moment count. The stage is set, and the spotlight is on you. Let the adventure begin!</p>
         </>
-      ) : null}
+      ) : <p className="eventdis">
+      Welcome to the Event Section!
+    </p>}
       </div>
 
       {/* AGENDA PAGE  */}
