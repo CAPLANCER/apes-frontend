@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Fragment } from "react";
+import "./Event.css"
 import {
   Container,
   Box,
@@ -78,18 +79,32 @@ export default function Events({ isAgenda = false }) {
     );
   };
   return (
-    <Container maxW="5xl" p={{ base: 5, md: 10 }}>
+    
+    <Container className="container" maxW="5xl" p={{ base: 5, md: 10 }}>
+      
       <Flex justify="left" mb={3}>
         <chakra.h3 fontSize="2xl" fontWeight="bold" textAlign="center">
-          {!isAgenda ? "Hackathons" : "Agendas"}
+          {!isAgenda ? ( <> <p className="title">Events</p> </>) : "Agendas"}
         </chakra.h3>
       </Flex>
+      <div>
+      {!isAgenda ? (
+        <>
+          <p className="eventdis">
+            Welcome to the Event Section!
+          </p>
+          <p className="eventdis">Step into a world of endless excitement and incredible opportunities with our exclusive Event Section! Brace yourself for a whirlwind of thrilling experiences that will leave you breathless and eager for more.</p>
+          <p className="eventdis">Participating in these extraordinary events is easier than ever! Simply dive into our captivating event listings, each brimming with thrilling details that will make your heart race. Choose the event that resonates with your passions and aspirations, and with a simple click, you'll unlock a world of adventure.</p>
+          <p className="eventdis">So, are you ready to step into the spotlight, fuel your passions, and embrace a world of thrilling events? Gear up, buckle in, and prepare to make every moment count. The stage is set, and the spotlight is on you. Let the adventure begin!</p>
+        </>
+      ) : null}
+      </div>
 
       {/* AGENDA PAGE  */}
 
       {isAgenda ? (
         // HACKATHON PAGE
-
+        <div className="eventbox">
         <VStack
           border="1px solid"
           borderColor="gray.400"
@@ -167,16 +182,19 @@ export default function Events({ isAgenda = false }) {
             </Fragment>
           ))}
         </VStack>
+        </div>
       ) : (
+        <div className="eventbox">
         <VStack
-          border="1px solid"
-          borderColor="red.400"
+          
           rounded="md"
           overflow="hidden"
           spacing={0}
         >
           {events.map((event, index) => (
+            
             <Fragment key={index}>
+              
               <Grid
                 onClick={() => navigate("/event/" + event._id)}
                 templateRows={{ base: "auto auto", md: "auto" }}
@@ -184,9 +202,11 @@ export default function Events({ isAgenda = false }) {
                 templateColumns={{ base: "unset", md: "4fr 2fr 2fr" }}
                 p={{ base: 2, sm: 4 }}
                 gap={3}
+                
                 alignItems="center"
-                _hover={{ bg: "gray.300" }}
+                _hover={{ bg: "blue.200" }}
               >
+                
                 <Box gridColumnEnd={{ base: "span 2", md: "unset" }}>
                   <chakra.h3
                     as={Link}
@@ -214,10 +234,13 @@ export default function Events({ isAgenda = false }) {
                   alignItems="center"
                 ></Stack>
               </Grid>
-              {articles.length - 1 !== index && <Divider m={0} />}
+              
+              {articles.length - 1 !== index }
             </Fragment>
+            
           ))}
         </VStack>
+        </div>
       )}
     </Container>
   );
