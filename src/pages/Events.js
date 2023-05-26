@@ -98,7 +98,7 @@ export default function Events({ isAgenda = false }) {
           <p className="eventdis">So, are you ready to step into the spotlight, fuel your passions, and embrace a world of thrilling events? Gear up, buckle in, and prepare to make every moment count. The stage is set, and the spotlight is on you. Let the adventure begin!</p>
         </>
       ) : <p className="eventdis">
-      Welcome to the Event Section!
+      Welcome to the Agendas Section!
     </p>}
       </div>
 
