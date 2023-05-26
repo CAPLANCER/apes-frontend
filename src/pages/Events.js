@@ -124,7 +124,7 @@ export default function Events({ isAgenda = false }) {
                 p={{ base: 2, sm: 4 }}
                 gap={3}
                 alignItems="center"
-                _hover={{ bg: "gray.600" }}
+                _hover={{ bg: "gray.200" }}
               >
                 <Box gridColumnEnd={{ base: "span 2", md: "unset" }}>
                   <chakra.h3
@@ -180,7 +180,7 @@ export default function Events({ isAgenda = false }) {
                   alignItems="center"
                 ></Stack>
               </Grid>
-              {articles.length - 1 !== index && <Divider m={0} />}
+              {articles.length - 1 !== index}
             </Fragment>
           ))}
         </VStack>
